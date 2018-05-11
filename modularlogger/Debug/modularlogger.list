@@ -23,23 +23,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   9 .ARM.attributes 00000030  00000000  00000000  0002006c  2**0
                   CONTENTS, READONLY
- 10 .debug_info   00028afd  00000000  00000000  0002009c  2**0
+ 10 .debug_info   00028b0e  00000000  00000000  0002009c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_abbrev 00005187  00000000  00000000  00048b99  2**0
+ 11 .debug_abbrev 00005187  00000000  00000000  00048baa  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    0000c097  00000000  00000000  0004dd20  2**0
+ 12 .debug_loc    0000c097  00000000  00000000  0004dd31  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_aranges 00001350  00000000  00000000  00059db8  2**3
+ 13 .debug_aranges 00001350  00000000  00000000  00059dc8  2**3
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_ranges 00001630  00000000  00000000  0005b108  2**3
+ 14 .debug_ranges 00001630  00000000  00000000  0005b118  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_line   0000a37c  00000000  00000000  0005c738  2**0
+ 15 .debug_line   0000a954  00000000  00000000  0005c748  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_str    0000752e  00000000  00000000  00066ab4  2**0
+ 16 .debug_str    00007541  00000000  00000000  0006709c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .comment      0000007c  00000000  00000000  0006dfe2  2**0
+ 17 .comment      0000007c  00000000  00000000  0006e5dd  2**0
                   CONTENTS, READONLY
- 18 .debug_frame  000038c0  00000000  00000000  0006e060  2**2
+ 18 .debug_frame  000038c0  00000000  00000000  0006e65c  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -906,9 +906,9 @@ void USART1_IRQHandler(void)
  800080c:	2100      	movs	r1, #0
  800080e:	4811      	ldr	r0, [pc, #68]	; (8000854 <USART1_IRQHandler+0x98>)
  8000810:	f003 ff65 	bl	80046de <memset>
-			HAL_UART_Receive_DMA(&stUartProperty[UART_IF_DEV_1].hUardHandle, stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer, UART_RX_BUFFERSIZE);
+			HAL_UART_Receive_DMA(&stUartProperty[UART_IF_DEV_1].hUardHandle, stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer, 1);
  8000814:	490f      	ldr	r1, [pc, #60]	; (8000854 <USART1_IRQHandler+0x98>)
- 8000816:	2228      	movs	r2, #40	; 0x28
+ 8000816:	2201      	movs	r2, #1
  8000818:	f1a1 0078 	sub.w	r0, r1, #120	; 0x78
  800081c:	f001 fe5c 	bl	80024d8 <HAL_UART_Receive_DMA>
   else
@@ -1507,9 +1507,9 @@ void UART5_IRQHandler(void)
 	HAL_UART_Init(&(stUartProperty[enuDevice].hUardHandle));	
  8000b64:	4640      	mov	r0, r8
  8000b66:	f002 f8e3 	bl	8002d30 <HAL_UART_Init>
-	HAL_UART_Receive_DMA(&(stUartProperty[enuDevice].hUardHandle), stUartProperty[enuDevice].u8UARTDmaRX_Buffer, UART_RX_BUFFERSIZE);
+	HAL_UART_Receive_DMA(&(stUartProperty[enuDevice].hUardHandle), stUartProperty[enuDevice].u8UARTDmaRX_Buffer, 1);
  8000b6a:	f107 017c 	add.w	r1, r7, #124	; 0x7c
- 8000b6e:	2228      	movs	r2, #40	; 0x28
+ 8000b6e:	2201      	movs	r2, #1
  8000b70:	4431      	add	r1, r6
  8000b72:	4640      	mov	r0, r8
  8000b74:	f001 fcb0 	bl	80024d8 <HAL_UART_Receive_DMA>
@@ -9961,7 +9961,7 @@ void StartDefaultTask(void const * argument)
  8003f06:	4606      	mov	r6, r0
  8003f08:	b100      	cbz	r0, 8003f0c <main+0x230>
  8003f0a:	e7fe      	b.n	8003f0a <main+0x22e>
-  tszUART_Init(UART_IF_DEV_1,115200,UART_IF_HWFLOWCTL_NONE,UART_IF_STOP_BITS_1,UART_IF_PARITY_NONE);
+	tszUART_Init(UART_IF_DEV_1,115200,UART_IF_HWFLOWCTL_NONE,UART_IF_STOP_BITS_1,UART_IF_PARITY_NONE);
  8003f0c:	4603      	mov	r3, r0
  8003f0e:	4602      	mov	r2, r0
  8003f10:	4629      	mov	r1, r5
