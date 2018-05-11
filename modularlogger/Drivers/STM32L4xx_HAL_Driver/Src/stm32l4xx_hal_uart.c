@@ -305,8 +305,11 @@ HAL_StatusTypeDef HAL_UART_Init(UART_HandleTypeDef *huart)
   /* Enable the Peripheral */
   __HAL_UART_ENABLE(huart);
   SET_BIT(huart->Instance->CR1, UART_IT_IDLE);
-  /* TEACK and/or REACK to check before moving huart->gState and huart->RxState to Ready */
-  return (UART_CheckIdleState(huart));
+  huart->ErrorCode = HAL_UART_ERROR_NONE;
+  huart->gState= HAL_UART_STATE_READY;
+  huart->RxState= HAL_UART_STATE_READY;
+
+  return HAL_OK;
 }
 
 /**
@@ -1181,7 +1184,25 @@ HAL_StatusTypeDef HAL_UART_DMAResume(UART_HandleTypeDef *huart)
   
   return HAL_OK;
 }
+HAL_StatusTypeDef HAL_UART_DMAStopRx(UART_HandleTypeDef *huart)
+{
+	  /* Stop UART DMA Rx request if ongoing */
+	  if ((huart->RxState == HAL_UART_STATE_BUSY_RX) &&
+	      (HAL_IS_BIT_SET(huart->Instance->CR3, USART_CR3_DMAR)))
+	  {
+	    CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAR);
 
+	    /* Abort the UART DMA Rx channel */
+	    if(huart->hdmarx != NULL)
+	    {
+	      HAL_DMA_Abort(huart->hdmarx);
+	    }
+
+	    UART_EndRxTransfer(huart);
+	  }
+
+	  return HAL_OK;
+}
 /**
   * @brief Stop the DMA Transfer.
   * @param huart UART handle.
@@ -2789,7 +2810,7 @@ static void UART_DMATransmitCplt(DMA_HandleTypeDef *hdma)
     CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAT);
     
     /* Enable the UART Transmit Complete Interrupt */
-    SET_BIT(huart->Instance->CR1, USART_CR1_TCIE);
+//    SET_BIT(huart->Instance->CR1, USART_CR1_TCIE);
   	huart->gState = HAL_UART_STATE_READY;
   	HAL_UART_TxCpltCallback(huart);
   }
