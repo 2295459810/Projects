@@ -172,7 +172,7 @@ void USART1_IRQHandler(void)
 				EnQueue(&(stUartProperty[UART_IF_DEV_1].qUartRxDataQ),(char)stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer[i]);
 			}
 			memset(stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer,0,UART_RX_BUFFERSIZE);
-			HAL_UART_Receive_DMA(&stUartProperty[UART_IF_DEV_1].hUardHandle, stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer, 1);
+			HAL_UART_Receive_DMA(&stUartProperty[UART_IF_DEV_1].hUardHandle, stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer, UART_RX_BUFFERSIZE);
   }
   else
   {
@@ -405,7 +405,7 @@ UART_IF_ErrorCode_t tszUART_Init(
 	stUartProperty[enuDevice].hUardHandle.Init.OverSampling = UART_OVERSAMPLING_16;
 	InitQueue(&(stUartProperty[enuDevice].qUartRxDataQ));
 	HAL_UART_Init(&(stUartProperty[enuDevice].hUardHandle));	
-	HAL_UART_Receive_DMA(&(stUartProperty[enuDevice].hUardHandle), stUartProperty[enuDevice].u8UARTDmaRX_Buffer, 1);
+	HAL_UART_Receive_DMA(&(stUartProperty[enuDevice].hUardHandle), stUartProperty[enuDevice].u8UARTDmaRX_Buffer, UART_RX_BUFFERSIZE);
 //	HAL_UART_Receive_DMA(&(stUartProperty[enuDevice].hUardHandle),UartDma_Init(uart_dma_send,USART1),RECE_BUF_MAX_LEN);
 //	HAL_UART_Receive_DMA(&(stUartProperty[enuDevice].hUardHandle),stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer,UART_RX_BUFFERSIZE);
 	//	stUartProperty[enuDevice].xUart_Tx_Muxtex = xSemaphoreCreateBinary();
