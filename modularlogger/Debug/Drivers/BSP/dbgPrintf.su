@@ -1,0 +1,2 @@
+dbgPrintf.c:37:6:writeString	24	static
+dbgPrintf.c:48:6:Console_dbgPrintf	12	static

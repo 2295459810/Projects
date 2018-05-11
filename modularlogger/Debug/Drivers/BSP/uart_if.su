@@ -1,0 +1,12 @@
+uart_if.c:54:6:HAL_UART_RxCpltCallback	24	static
+uart_if.c:102:6:HAL_UART_TxCpltCallback	0	static
+uart_if.c:144:6:USART1_IRQHandler	24	static
+uart_if.c:183:6:USART2_IRQHandler	32	static
+uart_if.c:224:6:USART3_IRQHandler	32	static
+uart_if.c:265:6:UART4_IRQHandler	32	static
+uart_if.c:303:6:UART5_IRQHandler	32	static
+uart_if.c:344:21:tszUART_Init	32	static
+uart_if.c:438:21:tszUART_DeInit	16	static
+uart_if.c:483:21:tszUART_Read	32	static
+uart_if.c:661:21:tszUART_Write	48	static
+uart_if.c:738:21:tszUART_ClearRxData	8	static

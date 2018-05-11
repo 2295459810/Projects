@@ -1,0 +1,11 @@
+_dma_cfg.c:341:6:uart_dma_send	0	static
+_dma_cfg.c:72:10:UartDma_Init	8	static
+_dma_cfg.c:102:10:UartDma_Read	20	static
+_dma_cfg.c:135:10:UartDma_Write	20	static
+_dma_cfg.c:185:17:UartDma_Avail	0	static
+_dma_cfg.c:213:9:UartDma_Poll	16	static
+_dma_cfg.c:315:6:HAL_UARTDMA_Init	8	static
+_dma_cfg.c:328:6:HAL_UART_Write	0	static
+_dma_cfg.c:354:10:HAL_UART_Read	0	static
+_dma_cfg.c:366:9:HAL_UART_Poll	0	static
+_dma_cfg.c:378:10:HAL_UART_RxBufLen	0	static
