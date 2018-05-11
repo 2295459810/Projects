@@ -2656,36 +2656,36 @@ LOAD f:/truestudio/truestudio for stm32 9.0.0/armtools/bin/../lib/gcc/arm-atolli
                 0x00000aa6       0x22 f:/truestudio/truestudio for stm32 9.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/crtn.o
 OUTPUT(modularlogger.elf elf32-littlearm)
 
-.debug_info     0x00000000    0x28afb
+.debug_info     0x00000000    0x28afd
  .debug_info    0x00000000      0xaa0 Drivers\BSP\appQueue.o
  .debug_info    0x00000aa0     0x1201 Drivers\BSP\dbgPrintf.o
- .debug_info    0x00001ca1     0x1d72 Drivers\BSP\uart_if.o
- .debug_info    0x00003a13     0x1301 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.o
- .debug_info    0x00004d14     0x1773 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_cortex.o
- .debug_info    0x00006487     0x1067 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma.o
- .debug_info    0x000074ee     0x1081 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_gpio.o
- .debug_info    0x0000856f     0x1e4f Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pcd.o
- .debug_info    0x0000a3be     0x12b0 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pcd_ex.o
- .debug_info    0x0000b66e     0x1203 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr.o
- .debug_info    0x0000c871     0x12a1 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr_ex.o
- .debug_info    0x0000db12     0x15c5 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc.o
- .debug_info    0x0000f0d7     0x17ef Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc_ex.o
- .debug_info    0x000108c6      0xdae Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rng.o
- .debug_info    0x00011674     0x17f5 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rtc.o
- .debug_info    0x00012e69     0x280f Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_spi.o
- .debug_info    0x00015678     0x2455 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart.o
- .debug_info    0x00017acd     0x11e9 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart_ex.o
- .debug_info    0x00018cb6     0x1f63 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_ll_usb.o
- .debug_info    0x0001ac19     0x2504 Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.o
- .debug_info    0x0001d11d      0xac0 Middlewares\Third_Party\FreeRTOS\Source\list.o
- .debug_info    0x0001dbdd      0x531 Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\port.o
- .debug_info    0x0001e10e      0xca5 Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.o
- .debug_info    0x0001edb3     0x2997 Middlewares\Third_Party\FreeRTOS\Source\tasks.o
- .debug_info    0x0002174a     0x2f92 Src\main.o
- .debug_info    0x000246dc     0x2828 Src\stm32l4xx_hal_msp.o
- .debug_info    0x00026f04      0xdc1 Src\stm32l4xx_it.o
- .debug_info    0x00027cc5      0xdd5 Src\system_stm32l4xx.o
- .debug_info    0x00028a9a       0x61 startup\startup_stm32l476xx.o
+ .debug_info    0x00001ca1     0x1d74 Drivers\BSP\uart_if.o
+ .debug_info    0x00003a15     0x1301 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.o
+ .debug_info    0x00004d16     0x1773 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_cortex.o
+ .debug_info    0x00006489     0x1067 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma.o
+ .debug_info    0x000074f0     0x1081 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_gpio.o
+ .debug_info    0x00008571     0x1e4f Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pcd.o
+ .debug_info    0x0000a3c0     0x12b0 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pcd_ex.o
+ .debug_info    0x0000b670     0x1203 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr.o
+ .debug_info    0x0000c873     0x12a1 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr_ex.o
+ .debug_info    0x0000db14     0x15c5 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc.o
+ .debug_info    0x0000f0d9     0x17ef Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc_ex.o
+ .debug_info    0x000108c8      0xdae Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rng.o
+ .debug_info    0x00011676     0x17f5 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rtc.o
+ .debug_info    0x00012e6b     0x280f Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_spi.o
+ .debug_info    0x0001567a     0x2455 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart.o
+ .debug_info    0x00017acf     0x11e9 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart_ex.o
+ .debug_info    0x00018cb8     0x1f63 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_ll_usb.o
+ .debug_info    0x0001ac1b     0x2504 Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.o
+ .debug_info    0x0001d11f      0xac0 Middlewares\Third_Party\FreeRTOS\Source\list.o
+ .debug_info    0x0001dbdf      0x531 Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\port.o
+ .debug_info    0x0001e110      0xca5 Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.o
+ .debug_info    0x0001edb5     0x2997 Middlewares\Third_Party\FreeRTOS\Source\tasks.o
+ .debug_info    0x0002174c     0x2f92 Src\main.o
+ .debug_info    0x000246de     0x2828 Src\stm32l4xx_hal_msp.o
+ .debug_info    0x00026f06      0xdc1 Src\stm32l4xx_it.o
+ .debug_info    0x00027cc7      0xdd5 Src\system_stm32l4xx.o
+ .debug_info    0x00028a9c       0x61 startup\startup_stm32l476xx.o
 
 .debug_abbrev   0x00000000     0x5187
  .debug_abbrev  0x00000000      0x238 Drivers\BSP\appQueue.o

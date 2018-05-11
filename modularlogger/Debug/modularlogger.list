@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   9 .ARM.attributes 00000030  00000000  00000000  0002006c  2**0
                   CONTENTS, READONLY
- 10 .debug_info   00028afb  00000000  00000000  0002009c  2**0
+ 10 .debug_info   00028afd  00000000  00000000  0002009c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_abbrev 00005187  00000000  00000000  00048b97  2**0
+ 11 .debug_abbrev 00005187  00000000  00000000  00048b99  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    0000c097  00000000  00000000  0004dd1e  2**0
+ 12 .debug_loc    0000c097  00000000  00000000  0004dd20  2**0
                   CONTENTS, READONLY, DEBUGGING
  13 .debug_aranges 00001350  00000000  00000000  00059db8  2**3
                   CONTENTS, READONLY, DEBUGGING
@@ -906,9 +906,9 @@ void USART1_IRQHandler(void)
  800080c:	2100      	movs	r1, #0
  800080e:	4811      	ldr	r0, [pc, #68]	; (8000854 <USART1_IRQHandler+0x98>)
  8000810:	f003 ff65 	bl	80046de <memset>
-			HAL_UART_Receive_DMA(&stUartProperty[UART_IF_DEV_1].hUardHandle, stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer, 1);
+			HAL_UART_Receive_DMA(&stUartProperty[UART_IF_DEV_1].hUardHandle, stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer, UART_RX_BUFFERSIZE);
  8000814:	490f      	ldr	r1, [pc, #60]	; (8000854 <USART1_IRQHandler+0x98>)
- 8000816:	2201      	movs	r2, #1
+ 8000816:	2228      	movs	r2, #40	; 0x28
  8000818:	f1a1 0078 	sub.w	r0, r1, #120	; 0x78
  800081c:	f001 fe5c 	bl	80024d8 <HAL_UART_Receive_DMA>
   else
@@ -1507,9 +1507,9 @@ void UART5_IRQHandler(void)
 	HAL_UART_Init(&(stUartProperty[enuDevice].hUardHandle));	
  8000b64:	4640      	mov	r0, r8
  8000b66:	f002 f8e3 	bl	8002d30 <HAL_UART_Init>
-	HAL_UART_Receive_DMA(&(stUartProperty[enuDevice].hUardHandle), stUartProperty[enuDevice].u8UARTDmaRX_Buffer, 1);
+	HAL_UART_Receive_DMA(&(stUartProperty[enuDevice].hUardHandle), stUartProperty[enuDevice].u8UARTDmaRX_Buffer, UART_RX_BUFFERSIZE);
  8000b6a:	f107 017c 	add.w	r1, r7, #124	; 0x7c
- 8000b6e:	2201      	movs	r2, #1
+ 8000b6e:	2228      	movs	r2, #40	; 0x28
  8000b70:	4431      	add	r1, r6
  8000b72:	4640      	mov	r0, r8
  8000b74:	f001 fcb0 	bl	80024d8 <HAL_UART_Receive_DMA>
