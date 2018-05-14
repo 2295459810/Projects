@@ -94,10 +94,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		}
 
 /*---------------------------------------------------------------------------------------------------------------------*/
-	memset(stUartProperty[Id].u8UARTDmaRX_Buffer,0,UART_RX_BUFFERSIZE);
+//	memset(stUartProperty[Id].u8UARTDmaRX_Buffer,0,UART_RX_BUFFERSIZE);
 
 	stUartProperty[Id].u32UARTRxDataLength = 0;
-	HAL_UART_Receive_DMA(&(stUartProperty[Id].hUardHandle), stUartProperty[Id].u8UARTDmaRX_Buffer, 1);
+	HAL_UART_Receive_DMA(&(stUartProperty[Id].hUardHandle), stUartProperty[Id].u8UARTDmaRX_Buffer, UART_RX_BUFFERSIZE);
 }
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {

@@ -625,12 +625,13 @@ void StartDefaultTask(void const * argument)
 //      HAL_UART_Write(app_buf,msgLen);
 //
 //    }
-  	enuRetVal=tszUART_Read(UART_IF_DEV_1, u8Buffer, 20, &u32Length, 2000U);
+  	enuRetVal=tszUART_Read(UART_IF_DEV_1, u8Buffer, 40, &u32Length, 2000U);
   	if(u32Length>0)
   	{
   		tszUART_Write(CONSOLE_UART, (const uint8_t*)u8Buffer, strlen(u8Buffer), 500,UART_IF_SEND_WAY_DMA);
   	}
  	 memset(u8Buffer,0,sizeof(u8Buffer));
+ 	u32Length = 0;
     /*##-3- Wait for the end of the transfer ###################################*/
 //    while (UartReady != SET)
 //    {
