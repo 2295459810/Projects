@@ -98,6 +98,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 	stUartProperty[Id].u32UARTRxDataLength = 0;
 	HAL_UART_Receive_DMA(&(stUartProperty[Id].hUardHandle), stUartProperty[Id].u8UARTDmaRX_Buffer, UART_RX_BUFFERSIZE);
+//	__HAL_UART_ENABLE_IT(&(stUartProperty[Id].hUardHandle), UART_IT_IDLE);
 }
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -150,11 +151,11 @@ void USART1_IRQHandler(void)
 //  tmp_flag = READ_BIT(stUartProperty[UART_IF_DEV_1].hUardHandle.Instance->ISR, USART_ISR_IDLE);
   if((tmp_flag != RESET))
   {
-	  __HAL_UART_CLEAR_IDLEFLAG(&(stUartProperty[UART_IF_DEV_1].hUardHandle));
-		temp = stUartProperty[UART_IF_DEV_1].hUardHandle.Instance->ISR;
-		temp = stUartProperty[UART_IF_DEV_1].hUardHandle.Instance->RDR;
-//	HAL_UART_DMAStop(&(stUartProperty[UART_IF_DEV_1].hUardHandle));
-		HAL_UART_DMAStopRx(&(stUartProperty[UART_IF_DEV_1].hUardHandle));
+			__HAL_UART_CLEAR_IDLEFLAG(&(stUartProperty[UART_IF_DEV_1].hUardHandle));
+			temp = stUartProperty[UART_IF_DEV_1].hUardHandle.Instance->ISR;
+			temp = stUartProperty[UART_IF_DEV_1].hUardHandle.Instance->RDR;
+			//	HAL_UART_DMAStop(&(stUartProperty[UART_IF_DEV_1].hUardHandle));
+			HAL_UART_DMAStop(&(stUartProperty[UART_IF_DEV_1].hUardHandle));
 			//__HAL_DMA_DISABLE(UART1_Handler.hdmarx);
 
 			stUartProperty[UART_IF_DEV_1].u32UARTRxDataLength = UART_RX_BUFFERSIZE - hdma_usart1_rx.Instance->CNDTR;
@@ -173,6 +174,7 @@ void USART1_IRQHandler(void)
 			}
 			memset(stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer,0,UART_RX_BUFFERSIZE);
 			HAL_UART_Receive_DMA(&stUartProperty[UART_IF_DEV_1].hUardHandle, stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer, UART_RX_BUFFERSIZE);
+			__HAL_UART_ENABLE_IT(&(stUartProperty[UART_IF_DEV_1].hUardHandle), UART_IT_IDLE);
   }
   else
   {
@@ -406,6 +408,7 @@ UART_IF_ErrorCode_t tszUART_Init(
 	InitQueue(&(stUartProperty[enuDevice].qUartRxDataQ));
 	HAL_UART_Init(&(stUartProperty[enuDevice].hUardHandle));	
 	HAL_UART_Receive_DMA(&(stUartProperty[enuDevice].hUardHandle), stUartProperty[enuDevice].u8UARTDmaRX_Buffer, UART_RX_BUFFERSIZE);
+//	__HAL_UART_ENABLE_IT(&(stUartProperty[enuDevice].hUardHandle), UART_IT_IDLE);
 //	HAL_UART_Receive_DMA(&(stUartProperty[enuDevice].hUardHandle),UartDma_Init(uart_dma_send,USART1),RECE_BUF_MAX_LEN);
 //	HAL_UART_Receive_DMA(&(stUartProperty[enuDevice].hUardHandle),stUartProperty[UART_IF_DEV_1].u8UARTDmaRX_Buffer,UART_RX_BUFFERSIZE);
 	//	stUartProperty[enuDevice].xUart_Tx_Muxtex = xSemaphoreCreateBinary();
